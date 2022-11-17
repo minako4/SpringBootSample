@@ -1,11 +1,13 @@
-package com.example.domain.user.service.impl;
+package com.example.demo.domain.user.service.impl;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.user.model.MUser;
+import com.example.demo.domain.user.service.UserService;
 import com.example.demo.repository.UserMapper;
-import com.example.domain.user.model.MUser;
-import com.example.domain.user.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -21,6 +23,12 @@ public class UserServiceImpl implements UserService{
         mapper.insertOne(user);
 
 
+    }
+
+    /**ユーザー取得*/
+    @Override
+    public List<MUser> getUsers() {
+        return mapper.findMany();
     }
 
 }
